@@ -21,6 +21,7 @@ function rx.gitsetup() {
   git config --global user.name "pilld"
   git config --global user.email "pilldtheassassin@gmail.com"
   git clone https://github.com/pilld/Rx.git ~/rx
+  git config credential.helper store
 }
 
 function rx.install() {
