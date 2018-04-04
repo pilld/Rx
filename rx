@@ -31,9 +31,9 @@ function rx.install() {
 }
 
 function rx.code.setup() {
-sudo wget -O code.deb https://go.microsoft.com/fwlink/?LinkID=760868
-sudo dpkg -i code.deb
-sudo apt-get install -f 	
+  sudo wget -O code.deb https://go.microsoft.com/fwlink/?LinkID=760868
+  sudo dpkg -i code.deb
+  sudo apt-get install -f 	
 }
 
 function rx.ssh.setup() {
