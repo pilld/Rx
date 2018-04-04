@@ -1,0 +1,42 @@
+#!/bin/bash
+
+#git
+git_username=''
+git_email=''
+git_password=''
+
+gmail_email=''
+gmail_password=''
+
+
+function rx.setup() {
+  git_username=$(sed -n 's/^git_username:[[:space:]]*//p' info)
+  git_email=$(sed -n 's/^git_email:[[:space:]]*//p' info)
+  git_password=$(sed -n 's/^git_password:[[:space:]]*//p' info)
+  gmail_password=$(sed -n 's/^gmail_email:[[:space:]]*//p' info)
+  gmail_email=$(sed -n 's/^gmail_password:[[:space:]]*//p' info)
+} 
+
+function rx.gitsetup() {
+  git config --global user.name "pilld"
+  git config --global user.email "pilldtheassassin@gmail.com"
+  git clone https://github.com/pilld/Rx.git ~/rx
+}
+
+function rx.install() {
+  sudo apt-get install vim
+  sudo apt-get install curl
+  sudo apt-get install git
+}
+
+function rx.code.setup() {
+sudo wget -O code.deb https://go.microsoft.com/fwlink/?LinkID=760868
+sudo dpkg -i code.deb
+sudo apt-get install -f 	
+}
+
+function rx.ssh.setup() {
+  ssh-keygen -t rsa -b 4096 -C "pilldtheassassin@gmail.com"
+  eval "$(ssh-agent -s)"
+  ssh-add ~/.ssh/id_rsa
+}
